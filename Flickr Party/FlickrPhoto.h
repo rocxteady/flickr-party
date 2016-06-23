@@ -19,4 +19,13 @@
 @property (strong, nonatomic) NSString <Ignore> *thumbnail;
 @property (strong, nonatomic) NSString <Ignore> *full;
 
+
+@end
+
+@interface FlickrPhotoParameters : BaseModel
+
+@property (assign, nonatomic) NSUInteger perpage;
+@property (assign, nonatomic) NSUInteger page;
+@property (strong, nonatomic) NSString *tags;
+
 @end

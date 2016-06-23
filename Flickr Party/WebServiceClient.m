@@ -1,0 +1,59 @@
+//
+//  WebServiceClient.m
+//  Flickr Party
+//
+//  Created by Ulaş Sancak on 23/06/16.
+//  Copyright © 2016 Ulaş Sancak. All rights reserved.
+//
+
+#import "WebServiceClient.h"
+#import <AFNetworking/AFNetworking.h>
+#import "Constants.h"
+
+static WebServiceClient *client;
+
+@implementation WebServiceClient
+
++ (instancetype)client {
+    if (!client) {
+        client = [[WebServiceClient alloc] init];
+    }
+    return client;
+}
+
+- (void)searchPhotosWithParameters:(FlickrPhotoParameters *)parameters withCompletionBlock:(WebServiceClientCompletionBlock)completionBlock{
+    NSMutableDictionary *parametersDictionary;
+    if (parameters) {
+        parametersDictionary = [NSMutableDictionary dictionaryWithDictionary:parameters.toDictionary];
+    }
+    else {
+        parametersDictionary[@"method"] = SearchMethod;
+    }
+    [self get:BaseURL parameters:parametersDictionary completionBlock:completionBlock];
+}
+
+- (void)get:(NSString *)URLString parameters:(NSDictionary *)parameters completionBlock:(WebServiceClientCompletionBlock)completionBlock {
+    NSMutableDictionary *parametersDictionary;
+    if (parameters) {
+        parametersDictionary = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    }
+    else {
+        parametersDictionary[@"api_key"] = FlickrAppKey;
+        parametersDictionary[@"format"] = @"json";
+    }
+    NSError *error = nil;
+    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parametersDictionary error:&error];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            completionBlock(nil, error);
+        } else {
+            completionBlock(responseObject, nil);
+        }
+    }];
+    [dataTask resume];
+}
+
+@end

@@ -30,3 +30,7 @@
 }
 
 @end
+
+@implementation FlickrPhotoParameters
+
+@end

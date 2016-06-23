@@ -20,6 +20,7 @@
 		7CF9330A1D1BF8A100D4A1A5 /* FlickrPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF933091D1BF8A100D4A1A5 /* FlickrPhotos.m */; };
 		7CF9330D1D1BF99500D4A1A5 /* FlickrResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF9330C1D1BF99500D4A1A5 /* FlickrResponse.m */; };
 		7CF933101D1BF9B900D4A1A5 /* FlickrSearchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF9330F1D1BF9B900D4A1A5 /* FlickrSearchResponse.m */; };
+		7CF933171D1C034500D4A1A5 /* WebServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF933161D1C034500D4A1A5 /* WebServiceClient.m */; };
 		B3F595945B818A64D8B3F92D /* libPods-Flickr Party.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBEE8C2D128E767DC9D6FEC /* libPods-Flickr Party.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,9 @@
 		7CF9330C1D1BF99500D4A1A5 /* FlickrResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrResponse.m; sourceTree = "<group>"; };
 		7CF9330E1D1BF9B900D4A1A5 /* FlickrSearchResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrSearchResponse.h; sourceTree = "<group>"; };
 		7CF9330F1D1BF9B900D4A1A5 /* FlickrSearchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrSearchResponse.m; sourceTree = "<group>"; };
+		7CF933151D1C034500D4A1A5 /* WebServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceClient.h; sourceTree = "<group>"; };
+		7CF933161D1C034500D4A1A5 /* WebServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceClient.m; sourceTree = "<group>"; };
+		7CF933181D1C035700D4A1A5 /* WebServiceClientHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServiceClientHelper.h; sourceTree = "<group>"; };
 		CCBEE8C2D128E767DC9D6FEC /* libPods-Flickr Party.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flickr Party.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,6 +79,7 @@
 		30ABF8431722CE0629A5D164 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				7CF932E41D1BF02700D4A1A5 /* Supporting Files */,
 				6D2C57531D952BD6E740D71D /* Pods-Flickr Party.debug.xcconfig */,
 				415A15B1772EE8B51E24956C /* Pods-Flickr Party.release.xcconfig */,
 			);
@@ -102,6 +107,9 @@
 		7CF932E31D1BF02700D4A1A5 /* Flickr Party */ = {
 			isa = PBXGroup;
 			children = (
+				7CF933151D1C034500D4A1A5 /* WebServiceClient.h */,
+				7CF933161D1C034500D4A1A5 /* WebServiceClient.m */,
+				7CF933181D1C035700D4A1A5 /* WebServiceClientHelper.h */,
 				7CF932E71D1BF02700D4A1A5 /* AppDelegate.h */,
 				7CF932E81D1BF02700D4A1A5 /* AppDelegate.m */,
 				7CF932EA1D1BF02700D4A1A5 /* ViewController.h */,
@@ -113,7 +121,6 @@
 				7CF933051D1BF37F00D4A1A5 /* Constants.h */,
 				7CF933061D1BF37F00D4A1A5 /* Constants.m */,
 				7CF933141D1BFA7D00D4A1A5 /* Models */,
-				7CF932E41D1BF02700D4A1A5 /* Supporting Files */,
 			);
 			path = "Flickr Party";
 			sourceTree = "<group>";
@@ -125,6 +132,7 @@
 				7CF932E51D1BF02700D4A1A5 /* main.m */,
 			);
 			name = "Supporting Files";
+			path = "Flickr Party";
 			sourceTree = "<group>";
 		};
 		7CF933141D1BFA7D00D4A1A5 /* Models */ = {
@@ -275,6 +283,7 @@
 				7CF932E61D1BF02700D4A1A5 /* main.m in Sources */,
 				7CF933101D1BF9B900D4A1A5 /* FlickrSearchResponse.m in Sources */,
 				7CF933071D1BF37F00D4A1A5 /* Constants.m in Sources */,
+				7CF933171D1C034500D4A1A5 /* WebServiceClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
