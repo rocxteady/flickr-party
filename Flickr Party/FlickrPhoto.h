@@ -1,0 +1,22 @@
+//
+//  FlickrPhoto.h
+//  Flickr Party
+//
+//  Created by Ulaş Sancak on 23/06/16.
+//  Copyright © 2016 Ulaş Sancak. All rights reserved.
+//
+
+#import "BaseModel.h"
+
+@interface FlickrPhoto : BaseModel
+
+@property (strong, nonatomic) NSString *photoId;
+@property (assign, nonatomic) NSUInteger farm;
+@property (strong, nonatomic) NSString *server;
+@property (strong, nonatomic) NSString *secret;
+
+//Ignored properties for json serialization
+@property (strong, nonatomic) NSString <Ignore> *thumbnail;
+@property (strong, nonatomic) NSString <Ignore> *full;
+
+@end
