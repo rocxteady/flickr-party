@@ -9,6 +9,10 @@
 #import "FlickrResponse.h"
 #import "FlickrPhotos.h"
 
+@class FlickrSearchResponse;
+
+typedef void(^FlickrPhotosCompletionBlock)(FlickrSearchResponse *response, NSError *error);
+
 @interface FlickrSearchResponse : FlickrResponse
 
 @property (strong, nonatomic) FlickrPhotos *photos;

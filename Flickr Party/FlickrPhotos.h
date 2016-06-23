@@ -17,6 +17,6 @@
 @property (strong, nonatomic) NSString *pages;
 @property (assign, nonatomic) NSUInteger perpage;
 @property (strong, nonatomic) NSString *total;
-@property (strong, nonatomic) NSArray <FlickrPhoto> *photos;
+@property (strong, nonatomic) NSArray <FlickrPhoto> *photo;
 
 @end

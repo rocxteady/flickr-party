@@ -8,6 +8,7 @@
 
 #import "FlickrPhoto.h"
 #import "Constants.h"
+#import "WebServiceClient.h"
 
 @implementation FlickrPhoto
 
@@ -16,17 +17,31 @@
 }
 
 - (NSString<Ignore> *)full {
-    return [NSString stringWithFormat:@"https://farm%lu.staticflickr.com/%@/%@_%@_s.jpg", (unsigned long)_farm, _server, _photoId, _secret];
+    return [NSString stringWithFormat:@"https://farm%lu.staticflickr.com/%@/%@_%@.jpg", (unsigned long)_farm, _server, _photoId, _secret];
 }
 
 +(JSONKeyMapper*)keyMapper
 {
     return [[JSONKeyMapper alloc] initWithDictionary:@{
-                                                       @"photoId": @"id",
+                                                       @"id": @"photoId",
                                                        @"farm": @"farm",
                                                        @"server": @"server",
                                                        @"secret": @"secret"
                                                        }];
+}
+
++ (void)getPartyPhotosWithPageNo:(NSUInteger)pageNo withCompletionBlock:(FlickrPhotosCompletionBlock)completionBlock {
+    FlickrPhotoParameters *parameters = [[FlickrPhotoParameters alloc] init];
+    parameters.page = pageNo;
+    parameters.perpage = 20;
+    parameters.tags = @"Party";
+    [[WebServiceClient client] searchPhotosWithParameters:parameters withCompletionBlock:^(NSMutableDictionary *response, NSError *error) {
+        FlickrSearchResponse *searchResponse;
+        if (!error) {
+            searchResponse = [[FlickrSearchResponse alloc] initWithDictionary:response error:&error];
+        }
+        completionBlock(searchResponse, error);
+    }];
 }
 
 @end

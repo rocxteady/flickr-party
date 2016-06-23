@@ -7,6 +7,7 @@
 //
 
 #import "BaseModel.h"
+#import "FlickrSearchResponse.h"
 
 @interface FlickrPhoto : BaseModel
 
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) NSString <Ignore> *thumbnail;
 @property (strong, nonatomic) NSString <Ignore> *full;
 
++ (void)getPartyPhotosWithPageNo:(NSUInteger)pageNo withCompletionBlock:(FlickrPhotosCompletionBlock)completionBlock;
 
 @end
 

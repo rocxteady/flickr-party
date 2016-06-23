@@ -27,8 +27,9 @@ static WebServiceClient *client;
         parametersDictionary = [NSMutableDictionary dictionaryWithDictionary:parameters.toDictionary];
     }
     else {
-        parametersDictionary[@"method"] = SearchMethod;
+        parametersDictionary = [NSMutableDictionary dictionary];
     }
+    parametersDictionary[@"method"] = SearchMethod;
     [self get:BaseURL parameters:parametersDictionary completionBlock:completionBlock];
 }
 
@@ -38,9 +39,11 @@ static WebServiceClient *client;
         parametersDictionary = [NSMutableDictionary dictionaryWithDictionary:parameters];
     }
     else {
-        parametersDictionary[@"api_key"] = FlickrAppKey;
-        parametersDictionary[@"format"] = @"json";
+        parametersDictionary = [NSMutableDictionary dictionary];
     }
+    parametersDictionary[@"api_key"] = FlickrAppKey;
+    parametersDictionary[@"format"] = @"json";
+    parametersDictionary[@"nojsoncallback"] = @1;
     NSError *error = nil;
     NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parametersDictionary error:&error];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];

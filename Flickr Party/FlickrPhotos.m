@@ -10,4 +10,15 @@
 
 @implementation FlickrPhotos
 
++(JSONKeyMapper*)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"photo": @"photos",
+                                                       @"pages": @"pages",
+                                                       @"perpage": @"perpage",
+                                                       @"total": @"total",
+                                                       @"page": @"page"
+                                                       }];
+}
+
 @end
