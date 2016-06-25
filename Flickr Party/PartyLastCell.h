@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    PartyDataStatusLoading,
+    PartyDataStatusLoaded,
+    PartyDataStatusFinished,
+    PartyDataStatusError
+}PartyDataStatus;
+
 @interface PartyLastCell : UICollectionViewCell
+
+@property (assign, nonatomic) PartyDataStatus partyDataStatus;
 
 @end

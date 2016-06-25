@@ -8,6 +8,7 @@
 
 #import "PartiesViewController.h"
 #import "PartyThumbCell.h"
+#import "PartyLastCell.h"
 #import "WebServiceClient.h"
 #import "FlickrPhoto.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -23,7 +24,8 @@
 
 @implementation PartiesViewController 
 
-static NSString * const reuseIdentifier = @"PartyThumbCell";
+static NSString * const defaultReuseIdentifier = @"PartyThumbCell";
+static NSString * const lastCellReuseIdentifier = @"PartyLastCell";
 static NSUInteger columnCount = 4;
 
 - (void)viewDidLoad {
@@ -47,7 +49,8 @@ static NSUInteger columnCount = 4;
     [refreshControl beginRefreshing];
     [self.collectionView setContentOffset:CGPointMake(-refreshControl.frame.size.height, 0)];
     // Register cell classes
-    [self.collectionView registerClass:[PartyThumbCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[PartyThumbCell class] forCellWithReuseIdentifier:defaultReuseIdentifier];
+    [self.collectionView registerClass:[PartyLastCell class] forCellWithReuseIdentifier:lastCellReuseIdentifier];
 }
 
 - (void)reset {
@@ -117,11 +120,15 @@ static NSUInteger columnCount = 4;
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return photos.count;
+    return photos.count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PartyThumbCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    if (indexPath.item == photos.count) {
+        PartyLastCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:lastCellReuseIdentifier forIndexPath:indexPath];
+        return cell;
+    }
+    PartyThumbCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:defaultReuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
     FlickrPhoto *photo = photos[indexPath.item];

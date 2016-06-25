@@ -10,6 +10,7 @@
 		7C74884C1D1D0E7800F9B2D2 /* PartiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884B1D1D0E7800F9B2D2 /* PartiesViewController.m */; };
 		7C74884F1D1D0E8D00F9B2D2 /* ViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884E1D1D0E8D00F9B2D2 /* ViewControllerManager.m */; };
 		7C7488521D1D108800F9B2D2 /* PartyThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7488511D1D108800F9B2D2 /* PartyThumbCell.m */; };
+		7CAC25AB1D1DD10E00B355B4 /* PartyLastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC25AA1D1DD10E00B355B4 /* PartyLastCell.m */; };
 		7CF932E61D1BF02700D4A1A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF932E51D1BF02700D4A1A5 /* main.m */; };
 		7CF932E91D1BF02700D4A1A5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF932E81D1BF02700D4A1A5 /* AppDelegate.m */; };
 		7CF932F11D1BF02700D4A1A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF932F01D1BF02700D4A1A5 /* Assets.xcassets */; };
@@ -33,6 +34,8 @@
 		7C74884E1D1D0E8D00F9B2D2 /* ViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerManager.m; sourceTree = "<group>"; };
 		7C7488501D1D108800F9B2D2 /* PartyThumbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartyThumbCell.h; sourceTree = "<group>"; };
 		7C7488511D1D108800F9B2D2 /* PartyThumbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartyThumbCell.m; sourceTree = "<group>"; };
+		7CAC25A91D1DD10E00B355B4 /* PartyLastCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartyLastCell.h; sourceTree = "<group>"; };
+		7CAC25AA1D1DD10E00B355B4 /* PartyLastCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartyLastCell.m; sourceTree = "<group>"; };
 		7CF932E11D1BF02700D4A1A5 /* Flickr Party.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr Party.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF932E51D1BF02700D4A1A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CF932E71D1BF02700D4A1A5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 			children = (
 				7C7488501D1D108800F9B2D2 /* PartyThumbCell.h */,
 				7C7488511D1D108800F9B2D2 /* PartyThumbCell.m */,
+				7CAC25A91D1DD10E00B355B4 /* PartyLastCell.h */,
+				7CAC25AA1D1DD10E00B355B4 /* PartyLastCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				7CF9330A1D1BF8A100D4A1A5 /* FlickrPhotos.m in Sources */,
 				7CF932E91D1BF02700D4A1A5 /* AppDelegate.m in Sources */,
 				7CF933011D1BF1E000D4A1A5 /* BaseModel.m in Sources */,
+				7CAC25AB1D1DD10E00B355B4 /* PartyLastCell.m in Sources */,
 				7C74884F1D1D0E8D00F9B2D2 /* ViewControllerManager.m in Sources */,
 				7CF933041D1BF20C00D4A1A5 /* FlickrPhoto.m in Sources */,
 				7CF9330D1D1BF99500D4A1A5 /* FlickrResponse.m in Sources */,
