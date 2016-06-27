@@ -15,6 +15,7 @@
 @property (assign, nonatomic) NSUInteger farm;
 @property (strong, nonatomic) NSString *server;
 @property (strong, nonatomic) NSString *secret;
+@property (strong, nonatomic) NSString *title;
 
 //Ignored properties for json serialization
 @property (strong, nonatomic) NSString <Ignore> *thumbnail;

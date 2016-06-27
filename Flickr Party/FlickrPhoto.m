@@ -26,7 +26,8 @@
                                                        @"id": @"photoId",
                                                        @"farm": @"farm",
                                                        @"server": @"server",
-                                                       @"secret": @"secret"
+                                                       @"secret": @"secret",
+                                                       @"title": @"title"
                                                        }];
 }
 
