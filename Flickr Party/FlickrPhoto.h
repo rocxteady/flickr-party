@@ -26,7 +26,7 @@
 
 @interface FlickrPhotoParameters : BaseModel
 
-@property (assign, nonatomic) NSUInteger perpage;
+@property (assign, nonatomic) NSUInteger perPage;
 @property (assign, nonatomic) NSUInteger page;
 @property (strong, nonatomic) NSString *tags;
 
