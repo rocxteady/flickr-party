@@ -14,8 +14,8 @@
 @interface FlickrPhotos : BaseModel
 
 @property (assign, nonatomic) NSUInteger page;
-@property (strong, nonatomic) NSString *pages;
-@property (assign, nonatomic) NSUInteger perpage;
+@property (assign, nonatomic) NSUInteger pages;
+@property (assign, nonatomic) NSUInteger perPage;
 @property (strong, nonatomic) NSString *total;
 @property (strong, nonatomic) NSArray <FlickrPhoto> *photos;
 

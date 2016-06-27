@@ -33,8 +33,8 @@
 + (void)getPartyPhotosWithPageNo:(NSUInteger)pageNo withCompletionBlock:(FlickrPhotosCompletionBlock)completionBlock {
     FlickrPhotoParameters *parameters = [[FlickrPhotoParameters alloc] init];
     parameters.page = pageNo;
-    parameters.perpage = 20;
-    parameters.tags = @"Party";
+    parameters.perPage = 20;
+    parameters.tags = @"Partyyyyy";
     [[WebServiceClient client] searchPhotosWithParameters:parameters withCompletionBlock:^(NSMutableDictionary *response, NSError *error) {
         FlickrSearchResponse *searchResponse;
         if (!error) {
@@ -47,5 +47,14 @@
 @end
 
 @implementation FlickrPhotoParameters
+
++(JSONKeyMapper*)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"page": @"page",
+                                                       @"tags": @"tags",
+                                                       @"per_page": @"perPage"
+                                                       }];
+}
 
 @end
