@@ -12,6 +12,7 @@
 #import "WebServiceClient.h"
 #import "FlickrPhoto.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "PartyDetailViewController.h"
 
 @interface PartiesViewController () <UICollectionViewDelegateFlowLayout>
 {
@@ -192,6 +193,16 @@ static NSUInteger columnCount = 4;
             [self getPartyPhotos];
             [collectionView reloadItemsAtIndexPaths:@[indexPath]];
         }
+    }
+    else {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.minimumLineSpacing = 0;
+        layout.minimumInteritemSpacing = 0;
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        PartyDetailViewController *partyDetailViewController = [[PartyDetailViewController alloc] initWithCollectionViewLayout:layout];
+        partyDetailViewController.photoIndex = indexPath.item;
+        partyDetailViewController.photos = photos;
+        [self.navigationController pushViewController:partyDetailViewController animated:YES];
     }
 }
 
