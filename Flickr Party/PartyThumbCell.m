@@ -13,10 +13,14 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        _imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        _imageView.translatesAutoresizingMaskIntoConstraints = NO;
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
-        _imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self.contentView addSubview:_imageView];
+        NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[imageView]|" options:0 metrics:nil views:@{@"imageView" : _imageView}];
+        NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[imageView]|" options:0 metrics:nil views:@{@"imageView" : _imageView}];
+        [self.contentView addConstraints:horizontalConstraints];
+        [self.contentView addConstraints:verticalConstraints];
     }
     return self;
 }
