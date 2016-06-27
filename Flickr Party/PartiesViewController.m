@@ -20,6 +20,9 @@
     FlickrSearchResponse *searchResponse;
     UIRefreshControl *refreshControl;
 }
+
+@property (assign, nonatomic) PartyDataStatus partyDataStatus;
+
 @end
 
 @implementation PartiesViewController 
@@ -30,6 +33,7 @@ static NSUInteger columnCount = 4;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    pageNo = 1;
     self.title = NSLocalizedString(@"Parties", nil);
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -54,22 +58,33 @@ static NSUInteger columnCount = 4;
 }
 
 - (void)reset {
-    pageNo = 0;
+    pageNo = 1;
     [self removeData];
     [self getPartyPhotos];
 }
 
 - (void)getPartyPhotos {
+    self.partyDataStatus = PartyDataStatusLoading;
     [FlickrPhoto getPartyPhotosWithPageNo:pageNo withCompletionBlock:^(FlickrSearchResponse *response, NSError *error) {
         [refreshControl endRefreshing];
         if (error) {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:error.localizedDescription delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles: nil];
             [alertView show];
+            self.partyDataStatus = PartyDataStatusError;
         }
         else {
+            ++pageNo;
             searchResponse = response;
             [self insertData];
+            if (pageNo > searchResponse.photos.pages) {
+                self.partyDataStatus = PartyDataStatusFinished;
+            }
+            else {
+                self.partyDataStatus = PartyDataStatusLoaded;
+            }
+
         }
+        [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:photos.count inSection:0]]];
     }];
 }
 
@@ -95,6 +110,12 @@ static NSUInteger columnCount = 4;
     }
     [photos removeAllObjects];
     [self.collectionView deleteItemsAtIndexPaths:indexPaths];
+}
+
+- (void)setPartyDataStatus:(PartyDataStatus)partyDataStatus {
+    _partyDataStatus = partyDataStatus;
+    PartyLastCell *cell = (PartyLastCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:photos.count inSection:0]];
+    cell.partyDataStatus = partyDataStatus;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,6 +147,23 @@ static NSUInteger columnCount = 4;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.item == photos.count) {
         PartyLastCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:lastCellReuseIdentifier forIndexPath:indexPath];
+        cell.partyDataStatus = self.partyDataStatus;
+        switch (cell.partyDataStatus) {
+            case PartyDataStatusLoaded:
+                [self getPartyPhotos];
+                break;
+            case PartyDataStatusLoading:
+                
+                break;
+            case PartyDataStatusFinished:
+                
+                break;
+            case PartyDataStatusError:
+                
+                break;
+            default:
+                break;
+        }
         return cell;
     }
     PartyThumbCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:defaultReuseIdentifier forIndexPath:indexPath];
@@ -137,12 +175,25 @@ static NSUInteger columnCount = 4;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.item == photos.count) {
+        CGSize size = CGSizeMake(collectionView.frame.size.width - collectionView.contentInset.left*2, 44.0);
+        return size;
+    }
     CGSize size;
     size.width = (collectionView.frame.size.width - collectionView.contentInset.left*(columnCount+1))/4.0;
     size.height = size.width;
     return size;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.item == photos.count) {
+        PartyLastCell *cell = (PartyLastCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        if (cell.partyDataStatus == PartyDataStatusError) {
+            [self getPartyPhotos];
+            [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        }
+    }
+}
 
 #pragma mark <UICollectionViewDelegate>
 
