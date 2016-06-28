@@ -31,13 +31,14 @@
     [self.contentView addConstraints:verticalConstraintsForScrollView];
     
     _imageView = [[FPImageView alloc] init];
+    _imageView.backgroundColor = [UIColor blackColor];
     _imageView.translatesAutoresizingMaskIntoConstraints = NO;
     _imageView.contentMode = UIViewContentModeScaleAspectFit;
     [_scrollView addSubview:_imageView];
     NSArray *horizontalConstraintsForImageView = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[imageView]|" options:0 metrics:nil views:@{@"imageView": _imageView}];
     [_scrollView addConstraints:horizontalConstraintsForImageView];
     
-    _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     _activityIndicator.hidesWhenStopped = YES;
     _activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
     [_scrollView addSubview:_activityIndicator];
