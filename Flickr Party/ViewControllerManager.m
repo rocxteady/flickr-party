@@ -8,20 +8,31 @@
 
 #import "ViewControllerManager.h"
 #import "PartiesViewController.h"
+#import "PartiesNearbyViewController.h"
 
 @implementation ViewControllerManager
 
 + (UIViewController *)initialViewController {
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.minimumLineSpacing = 2.0;
-    layout.minimumInteritemSpacing = 2.0;
+    UICollectionViewFlowLayout *layoutForParties = [[UICollectionViewFlowLayout alloc] init];
+    layoutForParties.minimumLineSpacing = 2.0;
+    layoutForParties.minimumInteritemSpacing = 2.0;
     
-    PartiesViewController *partiesViewController = [[PartiesViewController alloc] initWithCollectionViewLayout:layout];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:partiesViewController];
-    navigationController.tabBarItem.image = [UIImage imageNamed:@"party_tab"];
-    navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"party_tab"];
+    PartiesViewController *partiesViewController = [[PartiesViewController alloc] initWithCollectionViewLayout:layoutForParties];
+    UINavigationController *partiesNavigationController = [[UINavigationController alloc] initWithRootViewController:partiesViewController];
+    partiesNavigationController.tabBarItem.image = [UIImage imageNamed:@"party_tab"];
+    partiesNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"party_tab"];
+    
+    UICollectionViewFlowLayout *layoutForPartiesNearby = [[UICollectionViewFlowLayout alloc] init];
+    layoutForPartiesNearby.minimumLineSpacing = 2.0;
+    layoutForPartiesNearby.minimumInteritemSpacing = 2.0;
+    PartiesNearbyViewController *partiesNearbyViewController = [[PartiesNearbyViewController alloc] initWithCollectionViewLayout:layoutForPartiesNearby];
+    UINavigationController *partiesNearbyNavigationController = [[UINavigationController alloc] initWithRootViewController:partiesNearbyViewController];
+    partiesNearbyNavigationController.tabBarItem.image = [UIImage imageNamed:@"nearby_tab"];
+    partiesNearbyNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"nearby_tab"];
+    partiesNearbyNavigationController.tabBarItem.title = NSLocalizedString(@"Parties Nearby", nil);
+    
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[navigationController];
+    tabBarController.viewControllers = @[partiesNavigationController, partiesNearbyNavigationController];
     return tabBarController;
 }
 
