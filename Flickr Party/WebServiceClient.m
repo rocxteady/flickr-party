@@ -12,6 +12,15 @@
 
 static WebServiceClient *client;
 
+@interface WebServiceClient ()
+
+{
+    NSURLSessionConfiguration *configuration;
+    AFURLSessionManager *manager;
+}
+
+@end
+
 @implementation WebServiceClient
 
 + (instancetype)client {
@@ -19,6 +28,15 @@ static WebServiceClient *client;
         client = [[WebServiceClient alloc] init];
     }
     return client;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    }
+    return self;
 }
 
 - (void)searchPhotosWithParameters:(FlickrPhotoParameters *)parameters withCompletionBlock:(WebServiceClientCompletionBlock)completionBlock{
@@ -46,8 +64,7 @@ static WebServiceClient *client;
     parametersDictionary[@"nojsoncallback"] = @1;
     NSError *error = nil;
     NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parametersDictionary error:&error];
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
