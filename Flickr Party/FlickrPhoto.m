@@ -13,6 +13,10 @@
 
 @implementation FlickrPhoto
 
+static int perPage           = 32;
+static NSString * const tags = @"Party";
+static int radius            = 5;
+
 #pragma mark - JSONModel
 +(JSONKeyMapper*)keyMapper
 {
@@ -39,8 +43,8 @@
 + (void)getPartyPhotosWithPageNo:(NSUInteger)pageNo withCompletionBlock:(FlickrPhotosCompletionBlock)completionBlock {
     FlickrPhotoParameters *parameters = [[FlickrPhotoParameters alloc] init];
     parameters.page = pageNo;
-    parameters.perPage = 32;
-    parameters.tags = @"Party";
+    parameters.perPage = perPage;
+    parameters.tags = tags;
     [[WebServiceClient client] searchPhotosWithParameters:parameters withCompletionBlock:^(NSMutableDictionary *response, NSError *error) {
         FlickrSearchResponse *searchResponse;
         if (!error) {
@@ -53,11 +57,11 @@
 + (void)getPartyPhotosAroundMeWithPageNo:(NSUInteger)pageNo withCompletionBlock:(FlickrPhotosCompletionBlock)completionBlock {
     FlickrPhotoParameters *parameters = [[FlickrPhotoParameters alloc] init];
     parameters.page = pageNo;
-    parameters.perPage = 32;
-    parameters.tags = @"Party";
+    parameters.perPage = perPage;
+    parameters.tags = tags;
     parameters.lat = @([PartyLocationManager sharedManager].location.coordinate.latitude);
     parameters.lon = @([PartyLocationManager sharedManager].location.coordinate.longitude);
-    parameters.radius = @5;
+    parameters.radius = @(radius);
     [[WebServiceClient client] searchPhotosWithParameters:parameters withCompletionBlock:^(NSMutableDictionary *response, NSError *error) {
         FlickrSearchResponse *searchResponse;
         if (!error) {
