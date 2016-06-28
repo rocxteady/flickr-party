@@ -10,7 +10,7 @@
 
 @interface PartyDetailViewController : UICollectionViewController
 
-@property (assign, nonatomic) NSUInteger photoIndex;
-@property (weak, nonatomic) NSArray *photos;
+@property (assign, nonatomic) NSUInteger    photoIndex;
+@property (weak, nonatomic  ) NSArray       *photos;
 
 @end
