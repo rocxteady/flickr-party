@@ -10,6 +10,8 @@
 
 @implementation FlickrPhotos
 
+#pragma mark - JSONModel
+
 +(JSONKeyMapper*)keyMapper
 {
     return [[JSONKeyMapper alloc] initWithDictionary:@{

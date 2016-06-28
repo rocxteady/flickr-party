@@ -14,6 +14,12 @@
 
 + (instancetype)client;
 
+/**
+ Start a search request to Flickr API with given parameters.
+ 
+ @param parameters The FlickrPhotoParameters object used to create the parameters.
+ @param completionBlock A block object to be executed when the request finishes.
+  */
 - (void)searchPhotosWithParameters:(FlickrPhotoParameters *)parameters withCompletionBlock:(WebServiceClientCompletionBlock)completionBlock;
 
 @end

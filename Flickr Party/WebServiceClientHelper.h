@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString *const BaseURL = @"https://api.flickr.com/services/rest";
+static NSString *const BaseURL      = @"https://api.flickr.com/services/rest";
 static NSString *const SearchMethod = @"flickr.photos.search";
 
 typedef void(^WebServiceClientCompletionBlock)(NSMutableDictionary *response, NSError *error);

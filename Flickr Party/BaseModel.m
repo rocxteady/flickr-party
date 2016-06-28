@@ -10,6 +10,8 @@
 
 @implementation BaseModel
 
+#pragma mark - JSONModel
+
 +(BOOL)propertyIsOptional:(NSString*)propertyName
 {
     return YES;

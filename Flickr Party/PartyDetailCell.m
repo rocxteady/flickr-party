@@ -19,6 +19,7 @@
     return self;
 }
 
+//Adding related subviews and creating Auto Layout constraints.
 - (void)setup {
     
     _scrollView = [[UIScrollView alloc] init];
