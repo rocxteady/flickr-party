@@ -39,7 +39,7 @@
 + (void)getPartyPhotosWithPageNo:(NSUInteger)pageNo withCompletionBlock:(FlickrPhotosCompletionBlock)completionBlock {
     FlickrPhotoParameters *parameters = [[FlickrPhotoParameters alloc] init];
     parameters.page = pageNo;
-    parameters.perPage = 20;
+    parameters.perPage = 32;
     parameters.tags = @"Party";
     [[WebServiceClient client] searchPhotosWithParameters:parameters withCompletionBlock:^(NSMutableDictionary *response, NSError *error) {
         FlickrSearchResponse *searchResponse;
@@ -53,7 +53,7 @@
 + (void)getPartyPhotosAroundMeWithPageNo:(NSUInteger)pageNo withCompletionBlock:(FlickrPhotosCompletionBlock)completionBlock {
     FlickrPhotoParameters *parameters = [[FlickrPhotoParameters alloc] init];
     parameters.page = pageNo;
-    parameters.perPage = 20;
+    parameters.perPage = 32;
     parameters.tags = @"Party";
     parameters.lat = @([PartyLocationManager sharedManager].location.coordinate.latitude);
     parameters.lon = @([PartyLocationManager sharedManager].location.coordinate.longitude);
