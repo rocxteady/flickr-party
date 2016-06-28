@@ -110,7 +110,9 @@ static NSUInteger columnCount = 4;
     [self removeData];
     locationManager = [PartyLocationManager sharedManager];
     locationManager.delegate = self;
-    [locationManager requestWhenInUseAuthorization];
+    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+         [locationManager requestWhenInUseAuthorization];
+    }
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     NSString *errorDescription = nil;
     switch (status) {
