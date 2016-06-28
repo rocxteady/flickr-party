@@ -27,8 +27,10 @@
     return self;
 }
 
+//Adding related subviews and creating Auto Layout constraints.
 - (void)setup {
     
+    self.contentView.backgroundColor = [Constants sharedInstance].secondColor;
     activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
     activityIndicator.hidesWhenStopped = YES;
@@ -50,7 +52,7 @@
     NSArray *horizontalConstraintsForDescriptionLabel = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[descriptionLabel]-8-|" options:0 metrics:nil views:@{@"descriptionLabel": descriptionLabel}];
     [self.contentView addConstraints:horizontalConstraintsForDescriptionLabel];
     [self.contentView addConstraint:verticalCenterConstraintForDescriptionLabel];
-    descriptionLabel.text = NSLocalizedString(@"Error. Tap to retry.", nil);
+    descriptionLabel.text = NSLocalizedString(@"Error. Tap here to retry.", nil);
 
     
     finishedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tick"]];
@@ -63,6 +65,7 @@
     [self setPartyDataStatus:PartyDataStatusLoading];
 }
 
+//Subviews displaying arrangements considering the status of the data
 - (void)setPartyDataStatus:(PartyDataStatus)partyDataStatus {
     _partyDataStatus = partyDataStatus;
     switch (partyDataStatus) {
