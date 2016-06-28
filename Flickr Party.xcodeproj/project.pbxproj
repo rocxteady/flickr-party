@@ -14,6 +14,8 @@
 		7CE3AE2E1D211BF300F3F108 /* PartyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE2D1D211BF300F3F108 /* PartyDetailViewController.m */; };
 		7CE3AE311D211C3B00F3F108 /* PartyDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE301D211C3B00F3F108 /* PartyDetailCell.m */; };
 		7CE3AE341D21379A00F3F108 /* FPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE331D21379A00F3F108 /* FPImageView.m */; };
+		7CE3AE3A1D214E1C00F3F108 /* PartiesNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE391D214E1C00F3F108 /* PartiesNearbyViewController.m */; };
+		7CE3AE3D1D21732B00F3F108 /* PartyLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3AE3C1D21732B00F3F108 /* PartyLocationManager.m */; };
 		7CF932E61D1BF02700D4A1A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF932E51D1BF02700D4A1A5 /* main.m */; };
 		7CF932E91D1BF02700D4A1A5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF932E81D1BF02700D4A1A5 /* AppDelegate.m */; };
 		7CF932F11D1BF02700D4A1A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF932F01D1BF02700D4A1A5 /* Assets.xcassets */; };
@@ -45,6 +47,10 @@
 		7CE3AE301D211C3B00F3F108 /* PartyDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartyDetailCell.m; sourceTree = "<group>"; };
 		7CE3AE321D21379A00F3F108 /* FPImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPImageView.h; sourceTree = "<group>"; };
 		7CE3AE331D21379A00F3F108 /* FPImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPImageView.m; sourceTree = "<group>"; };
+		7CE3AE381D214E1C00F3F108 /* PartiesNearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartiesNearbyViewController.h; sourceTree = "<group>"; };
+		7CE3AE391D214E1C00F3F108 /* PartiesNearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartiesNearbyViewController.m; sourceTree = "<group>"; };
+		7CE3AE3B1D21732B00F3F108 /* PartyLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartyLocationManager.h; sourceTree = "<group>"; };
+		7CE3AE3C1D21732B00F3F108 /* PartyLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartyLocationManager.m; sourceTree = "<group>"; };
 		7CF932E11D1BF02700D4A1A5 /* Flickr Party.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr Party.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF932E51D1BF02700D4A1A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CF932E71D1BF02700D4A1A5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -132,6 +138,8 @@
 				7CF933061D1BF37F00D4A1A5 /* Constants.m */,
 				7CE3AE321D21379A00F3F108 /* FPImageView.h */,
 				7CE3AE331D21379A00F3F108 /* FPImageView.m */,
+				7CE3AE3B1D21732B00F3F108 /* PartyLocationManager.h */,
+				7CE3AE3C1D21732B00F3F108 /* PartyLocationManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -143,6 +151,8 @@
 				7C74884B1D1D0E7800F9B2D2 /* PartiesViewController.m */,
 				7CE3AE2C1D211BF300F3F108 /* PartyDetailViewController.h */,
 				7CE3AE2D1D211BF300F3F108 /* PartyDetailViewController.m */,
+				7CE3AE381D214E1C00F3F108 /* PartiesNearbyViewController.h */,
+				7CE3AE391D214E1C00F3F108 /* PartiesNearbyViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -172,11 +182,11 @@
 				7C74887D1D1D6AFD00F9B2D2 /* Utils */,
 				7C74887E1D1D6B0400F9B2D2 /* ViewControllers */,
 				7C74887B1D1D6AE400F9B2D2 /* Cells */,
+				7CF933141D1BFA7D00D4A1A5 /* Models */,
 				7CF932E71D1BF02700D4A1A5 /* AppDelegate.h */,
 				7CF932E81D1BF02700D4A1A5 /* AppDelegate.m */,
 				7CF932F01D1BF02700D4A1A5 /* Assets.xcassets */,
 				7CF932F51D1BF02700D4A1A5 /* Info.plist */,
-				7CF933141D1BFA7D00D4A1A5 /* Models */,
 			);
 			path = "Flickr Party";
 			sourceTree = "<group>";
@@ -331,6 +341,7 @@
 				7CE3AE2E1D211BF300F3F108 /* PartyDetailViewController.m in Sources */,
 				7C7488521D1D108800F9B2D2 /* PartyThumbCell.m in Sources */,
 				7CE3AE311D211C3B00F3F108 /* PartyDetailCell.m in Sources */,
+				7CE3AE3A1D214E1C00F3F108 /* PartiesNearbyViewController.m in Sources */,
 				7CF9330A1D1BF8A100D4A1A5 /* FlickrPhotos.m in Sources */,
 				7CF932E91D1BF02700D4A1A5 /* AppDelegate.m in Sources */,
 				7CF933011D1BF1E000D4A1A5 /* BaseModel.m in Sources */,
@@ -340,6 +351,7 @@
 				7CF9330D1D1BF99500D4A1A5 /* FlickrResponse.m in Sources */,
 				7CF932E61D1BF02700D4A1A5 /* main.m in Sources */,
 				7CF933101D1BF9B900D4A1A5 /* FlickrSearchResponse.m in Sources */,
+				7CE3AE3D1D21732B00F3F108 /* PartyLocationManager.m in Sources */,
 				7CE3AE341D21379A00F3F108 /* FPImageView.m in Sources */,
 				7C74884C1D1D0E7800F9B2D2 /* PartiesViewController.m in Sources */,
 				7CF933071D1BF37F00D4A1A5 /* Constants.m in Sources */,
