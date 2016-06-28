@@ -28,7 +28,7 @@
 #pragma mark - Unserialized Getters
 //Generating thumbnail and full URL strings for the photos
 - (NSString<Ignore> *)thumbnail {
-    return [NSString stringWithFormat:@"https://farm%lu.staticflickr.com/%@/%@_%@_s.jpg", (unsigned long)_farm, _server, _photoId, _secret];
+    return [NSString stringWithFormat:@"https://farm%lu.staticflickr.com/%@/%@_%@_q.jpg", (unsigned long)_farm, _server, _photoId, _secret];
 }
 
 - (NSString<Ignore> *)full {
