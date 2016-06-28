@@ -166,10 +166,21 @@ static NSUInteger columnCount = 4;
         return cell;
     }
     PartyThumbCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:defaultReuseIdentifier forIndexPath:indexPath];
-    
+    cell.imageView.alpha = 0;
     // Configure the cell
     FlickrPhoto *photo = photos[indexPath.item];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail] placeholderImage:nil];
+    __block __weak PartyThumbCell *blockCell = cell;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (cacheType == SDImageCacheTypeNone) {
+            [UIView animateWithDuration:0.25
+                             animations:^{
+                                 blockCell.imageView.alpha = 1.0;
+                             }];
+        }
+        else {
+            blockCell.imageView.alpha = 1.0;
+        }
+    }];
     return cell;
 }
 
