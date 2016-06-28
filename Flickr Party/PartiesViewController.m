@@ -42,7 +42,7 @@ static NSUInteger columnCount = 4;
     [self setup];
     
     // Do any additional setup after loading the view.
-    [self getPartyPhotos];
+    [self reset];
 }
 
 - (void)setup {
