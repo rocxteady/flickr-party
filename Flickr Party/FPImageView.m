@@ -19,13 +19,8 @@
 */
 
 - (CGSize)intrinsicContentSize {
-    CGSize size = [super intrinsicContentSize];
-    CGFloat ratio = size.width/size.height;
-    size.width = [UIScreen mainScreen].bounds.size.width;
-    size.height = size.width / ratio;
-    if (size.height <= 50) {
-        size.height = 50;
-    }
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    size.height = size.width;
     return size;
 }
 
