@@ -13,6 +13,7 @@
 #import "FlickrPhoto.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "PartyDetailViewController.h"
+#import "Constants.h"
 
 @interface PartiesViewController () <UICollectionViewDelegateFlowLayout>
 {
@@ -34,7 +35,6 @@ static NSUInteger columnCount = 4;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    pageNo = 1;
     self.title = NSLocalizedString(@"Parties", nil);
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -47,12 +47,10 @@ static NSUInteger columnCount = 4;
 
 - (void)setup {
     self.collectionView.contentInset = UIEdgeInsetsMake(2.0, 2.0, 2.0, 2.0);
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [Constants sharedInstance].secondColor;
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(reset) forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:refreshControl];
-    [refreshControl beginRefreshing];
-    [self.collectionView setContentOffset:CGPointMake(-refreshControl.frame.size.height, 0)];
     // Register cell classes
     [self.collectionView registerClass:[PartyThumbCell class] forCellWithReuseIdentifier:defaultReuseIdentifier];
     [self.collectionView registerClass:[PartyLastCell class] forCellWithReuseIdentifier:lastCellReuseIdentifier];
