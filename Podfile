@@ -5,7 +5,5 @@ target "Flickr Party" do
 pod 'AFNetworking'
 pod 'SDWebImage'
 pod 'JSONModel'
-pod 'Reachability'
-pod 'SVProgressHUD'
 
 end
