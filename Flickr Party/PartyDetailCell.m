@@ -48,14 +48,17 @@
     [_scrollView addConstraint:centerYConstraintForActivityIndicator];
     
     _descriptionLabel = [[UILabel alloc] init];
+    _descriptionLabel.numberOfLines = 0;
     _descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     _descriptionLabel.textColor = [Constants sharedInstance].maincolor;
     _descriptionLabel.font = [UIFont systemFontOfSize:14.0];
     [_scrollView addSubview:_descriptionLabel];
     NSArray *horizontalConstraintsForDescriptionLabel= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[descriptionLabel]-8-|" options:0 metrics:nil views:@{@"descriptionLabel": _descriptionLabel}];
     NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[imageView]-8-[descriptionLabel]-20-|" options:0 metrics:nil views:@{@"imageView": _imageView, @"descriptionLabel": _descriptionLabel}];
+    NSLayoutConstraint *widthConstraintForDescriptionLabel = [NSLayoutConstraint constraintWithItem:_descriptionLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_scrollView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:-16.0];
     [_scrollView addConstraints:horizontalConstraintsForDescriptionLabel];
     [_scrollView addConstraints:verticalConstraints];
+    [_scrollView addConstraint:widthConstraintForDescriptionLabel];
 }
 
 @end
