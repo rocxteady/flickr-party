@@ -75,6 +75,7 @@ static NSString * const reuseIdentifier = @"PartyDetailCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PartyDetailCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.scrollView.contentOffset = CGPointZero;
     
     // Configure the cell
     FlickrPhoto *photo = _photos[indexPath.item];
