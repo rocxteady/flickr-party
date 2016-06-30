@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C6958921D25120700A4D84B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 7C6958911D25120700A4D84B /* README.md */; };
 		7C74884C1D1D0E7800F9B2D2 /* PartiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884B1D1D0E7800F9B2D2 /* PartiesViewController.m */; };
 		7C74884F1D1D0E8D00F9B2D2 /* ViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884E1D1D0E8D00F9B2D2 /* ViewControllerManager.m */; };
 		7C7488521D1D108800F9B2D2 /* PartyThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7488511D1D108800F9B2D2 /* PartyThumbCell.m */; };
@@ -354,7 +353,6 @@
 				7CF9330D1D1BF99500D4A1A5 /* FlickrResponse.m in Sources */,
 				7CF932E61D1BF02700D4A1A5 /* main.m in Sources */,
 				7CF933101D1BF9B900D4A1A5 /* FlickrSearchResponse.m in Sources */,
-				7C6958921D25120700A4D84B /* README.md in Sources */,
 				7CE3AE3D1D21732B00F3F108 /* PartyLocationManager.m in Sources */,
 				7CE3AE341D21379A00F3F108 /* FPImageView.m in Sources */,
 				7C74884C1D1D0E7800F9B2D2 /* PartiesViewController.m in Sources */,
