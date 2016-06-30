@@ -127,7 +127,6 @@ static NSUInteger columnCount = 4;
             break;
         case kCLAuthorizationStatusAuthorizedAlways:
         case kCLAuthorizationStatusAuthorizedWhenInUse:
-            [locationManager startUpdatingLocation];
             break;
         default:
             break;
@@ -139,6 +138,9 @@ static NSUInteger columnCount = 4;
             isLocationAuthorizationErrorDisplayed = YES;
         }
         self.partyDataStatus = PartyDataStatusError;
+    }
+    else {
+        [locationManager startUpdatingLocation];
     }
 }
 
