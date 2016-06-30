@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C6958921D25120700A4D84B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 7C6958911D25120700A4D84B /* README.md */; };
 		7C74884C1D1D0E7800F9B2D2 /* PartiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884B1D1D0E7800F9B2D2 /* PartiesViewController.m */; };
 		7C74884F1D1D0E8D00F9B2D2 /* ViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884E1D1D0E8D00F9B2D2 /* ViewControllerManager.m */; };
 		7C7488521D1D108800F9B2D2 /* PartyThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7488511D1D108800F9B2D2 /* PartyThumbCell.m */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		415A15B1772EE8B51E24956C /* Pods-Flickr Party.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr Party.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flickr Party/Pods-Flickr Party.release.xcconfig"; sourceTree = "<group>"; };
 		6D2C57531D952BD6E740D71D /* Pods-Flickr Party.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr Party.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flickr Party/Pods-Flickr Party.debug.xcconfig"; sourceTree = "<group>"; };
+		7C6958911D25120700A4D84B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		7C74884A1D1D0E7800F9B2D2 /* PartiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartiesViewController.h; sourceTree = "<group>"; };
 		7C74884B1D1D0E7800F9B2D2 /* PartiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartiesViewController.m; sourceTree = "<group>"; };
 		7C74884D1D1D0E8D00F9B2D2 /* ViewControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerManager.h; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				7CF932E81D1BF02700D4A1A5 /* AppDelegate.m */,
 				7CF932F01D1BF02700D4A1A5 /* Assets.xcassets */,
 				7CF932F51D1BF02700D4A1A5 /* Info.plist */,
+				7C6958911D25120700A4D84B /* README.md */,
 			);
 			path = "Flickr Party";
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				7CF9330D1D1BF99500D4A1A5 /* FlickrResponse.m in Sources */,
 				7CF932E61D1BF02700D4A1A5 /* main.m in Sources */,
 				7CF933101D1BF9B900D4A1A5 /* FlickrSearchResponse.m in Sources */,
+				7C6958921D25120700A4D84B /* README.md in Sources */,
 				7CE3AE3D1D21732B00F3F108 /* PartyLocationManager.m in Sources */,
 				7CE3AE341D21379A00F3F108 /* FPImageView.m in Sources */,
 				7C74884C1D1D0E7800F9B2D2 /* PartiesViewController.m in Sources */,
