@@ -457,7 +457,7 @@
 				INFOPLIST_FILE = "Flickr Party/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ulassancak.Flickr-Party";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ulassancak.flickrparty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -471,7 +471,7 @@
 				INFOPLIST_FILE = "Flickr Party/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ulassancak.Flickr-Party";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ulassancak.flickrparty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
