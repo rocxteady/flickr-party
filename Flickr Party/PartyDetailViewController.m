@@ -80,10 +80,10 @@ static NSString * const reuseIdentifier = @"PartyDetailCell";
     // Configure the cell
     FlickrPhoto *photo = _photos[indexPath.item];
     cell.descriptionLabel.text = photo.title;
-    [cell.activityIndicator startAnimating];
+    [cell startAnimation];
     __block __weak PartyDetailCell *blockCell = cell;
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:photo.full] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [blockCell.activityIndicator stopAnimating];
+        [blockCell stopAnimation];
     }];
     return cell;
 }
