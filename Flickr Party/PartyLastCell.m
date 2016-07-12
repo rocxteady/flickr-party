@@ -8,6 +8,7 @@
 
 #import "PartyLastCell.h"
 #import "UIColor+Utils.h"
+#import "Constants.h"
 
 @interface PartyLastCell()
 {
@@ -49,7 +50,7 @@
     descriptionLabel.textColor = [UIColor mainColor];
     [self.contentView addSubview:descriptionLabel];
     NSLayoutConstraint *verticalCenterConstraintForDescriptionLabel = [NSLayoutConstraint constraintWithItem:descriptionLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
-    NSArray *horizontalConstraintsForDescriptionLabel = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[descriptionLabel]-8-|" options:0 metrics:nil views:@{@"descriptionLabel": descriptionLabel}];
+    NSArray *horizontalConstraintsForDescriptionLabel = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[descriptionLabel]-%f-|", defaultViewPadding, defaultViewPadding] options:0 metrics:nil views:@{@"descriptionLabel": descriptionLabel}];
     [self.contentView addConstraints:horizontalConstraintsForDescriptionLabel];
     [self.contentView addConstraint:verticalCenterConstraintForDescriptionLabel];
     descriptionLabel.text = NSLocalizedString(@"Error. Tap here to retry.", nil);

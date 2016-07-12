@@ -8,6 +8,9 @@
 
 #import "PartyDetailCell.h"
 #import "UIColor+Utils.h"
+#import "Constants.h"
+
+static CGFloat descriptionLabelTrailingSpace = 20.0;
 
 @interface PartyDetailCell ()
 
@@ -61,9 +64,9 @@
     _descriptionLabel.textColor = [UIColor mainColor];
     _descriptionLabel.font = [UIFont systemFontOfSize:14.0];
     [_scrollView addSubview:_descriptionLabel];
-    NSArray *horizontalConstraintsForDescriptionLabel= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[descriptionLabel]-8-|" options:0 metrics:nil views:@{@"descriptionLabel": _descriptionLabel}];
-    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[imageView]-8-[descriptionLabel]-20-|" options:0 metrics:nil views:@{@"imageView": _imageView, @"descriptionLabel": _descriptionLabel}];
-    NSLayoutConstraint *widthConstraintForDescriptionLabel = [NSLayoutConstraint constraintWithItem:_descriptionLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_scrollView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:-16.0];
+    NSArray *horizontalConstraintsForDescriptionLabel= [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[descriptionLabel]-%f-|", defaultViewPadding, defaultViewPadding] options:0 metrics:nil views:@{@"descriptionLabel": _descriptionLabel}];
+    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|[imageView]-%f-[descriptionLabel]-%f-|", defaultViewPadding, descriptionLabelTrailingSpace] options:0 metrics:nil views:@{@"imageView": _imageView, @"descriptionLabel": _descriptionLabel}];
+    NSLayoutConstraint *widthConstraintForDescriptionLabel = [NSLayoutConstraint constraintWithItem:_descriptionLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_scrollView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:-(2*defaultViewPadding)];
     [_scrollView addConstraints:horizontalConstraintsForDescriptionLabel];
     [_scrollView addConstraints:verticalConstraints];
     [_scrollView addConstraint:widthConstraintForDescriptionLabel];
