@@ -7,7 +7,7 @@
 //
 
 #import "PartyLastCell.h"
-#import "Constants.h"
+#import "UIColor+Utils.h"
 
 @interface PartyLastCell()
 {
@@ -30,7 +30,7 @@
 //Adding related subviews and creating Auto Layout constraints.
 - (void)setup {
     
-    self.contentView.backgroundColor = [Constants sharedInstance].secondColor;
+    self.contentView.backgroundColor = [UIColor secondColor];
     activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
     activityIndicator.hidesWhenStopped = YES;
@@ -46,7 +46,7 @@
     descriptionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     descriptionLabel.textAlignment = NSTextAlignmentCenter;
     descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    descriptionLabel.textColor = [Constants sharedInstance].maincolor;
+    descriptionLabel.textColor = [UIColor mainColor];
     [self.contentView addSubview:descriptionLabel];
     NSLayoutConstraint *verticalCenterConstraintForDescriptionLabel = [NSLayoutConstraint constraintWithItem:descriptionLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
     NSArray *horizontalConstraintsForDescriptionLabel = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[descriptionLabel]-8-|" options:0 metrics:nil views:@{@"descriptionLabel": descriptionLabel}];
@@ -96,8 +96,6 @@
             descriptionLabel.hidden = NO;
             finishedImageView.hidden = YES;
         }
-            break;
-        default:
             break;
     }
 }
