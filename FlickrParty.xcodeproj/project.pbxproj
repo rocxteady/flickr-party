@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		5D868B2780D0DE0072E81A5E /* libPods-FlickrParty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7979913837F44D6CE797B4 /* libPods-FlickrParty.a */; };
 		7C74884C1D1D0E7800F9B2D2 /* PartiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884B1D1D0E7800F9B2D2 /* PartiesViewController.m */; };
 		7C74884F1D1D0E8D00F9B2D2 /* ViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884E1D1D0E8D00F9B2D2 /* ViewControllerManager.m */; };
 		7C7488521D1D108800F9B2D2 /* PartyThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7488511D1D108800F9B2D2 /* PartyThumbCell.m */; };
@@ -42,11 +43,12 @@
 		7CF9330D1D1BF99500D4A1A5 /* FlickrResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF9330C1D1BF99500D4A1A5 /* FlickrResponse.m */; };
 		7CF933101D1BF9B900D4A1A5 /* FlickrSearchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF9330F1D1BF9B900D4A1A5 /* FlickrSearchResponse.m */; };
 		7CF933171D1C034500D4A1A5 /* WebServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF933161D1C034500D4A1A5 /* WebServiceClient.m */; };
-		B3F595945B818A64D8B3F92D /* libPods-Flickr Party.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBEE8C2D128E767DC9D6FEC /* libPods-Flickr Party.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		415A15B1772EE8B51E24956C /* Pods-Flickr Party.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr Party.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flickr Party/Pods-Flickr Party.release.xcconfig"; sourceTree = "<group>"; };
+		4F7979913837F44D6CE797B4 /* libPods-FlickrParty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlickrParty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54AB70CB6FD9FC2D76DC799B /* Pods-FlickrParty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrParty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrParty/Pods-FlickrParty.debug.xcconfig"; sourceTree = "<group>"; };
 		6D2C57531D952BD6E740D71D /* Pods-Flickr Party.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr Party.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flickr Party/Pods-Flickr Party.debug.xcconfig"; sourceTree = "<group>"; };
 		7C6958911D25120700A4D84B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		7C74884A1D1D0E7800F9B2D2 /* PartiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartiesViewController.h; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		7CF933151D1C034500D4A1A5 /* WebServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceClient.h; sourceTree = "<group>"; };
 		7CF933161D1C034500D4A1A5 /* WebServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceClient.m; sourceTree = "<group>"; };
 		7CF933181D1C035700D4A1A5 /* WebServiceClientHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServiceClientHelper.h; sourceTree = "<group>"; };
+		9A52DAC9C1D08B71A4EAF9DD /* Pods-FlickrParty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrParty.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrParty/Pods-FlickrParty.release.xcconfig"; sourceTree = "<group>"; };
 		CCBEE8C2D128E767DC9D6FEC /* libPods-Flickr Party.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flickr Party.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3F595945B818A64D8B3F92D /* libPods-Flickr Party.a in Frameworks */,
+				5D868B2780D0DE0072E81A5E /* libPods-FlickrParty.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				CCBEE8C2D128E767DC9D6FEC /* libPods-Flickr Party.a */,
+				4F7979913837F44D6CE797B4 /* libPods-FlickrParty.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,6 +124,8 @@
 				7CF932E41D1BF02700D4A1A5 /* Supporting Files */,
 				6D2C57531D952BD6E740D71D /* Pods-Flickr Party.debug.xcconfig */,
 				415A15B1772EE8B51E24956C /* Pods-Flickr Party.release.xcconfig */,
+				54AB70CB6FD9FC2D76DC799B /* Pods-FlickrParty.debug.xcconfig */,
+				9A52DAC9C1D08B71A4EAF9DD /* Pods-FlickrParty.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -336,7 +342,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flickr Party/Pods-Flickr Party-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlickrParty/Pods-FlickrParty-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B66F5C381C9D66E2208711D0 /* [CP] Embed Pods Frameworks */ = {
@@ -351,7 +357,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flickr Party/Pods-Flickr Party-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlickrParty/Pods-FlickrParty-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EBB0DA24E08670DFD0B01923 /* [CP] Check Pods Manifest.lock */ = {
@@ -499,7 +505,7 @@
 		};
 		7CF932F91D1BF02700D4A1A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D2C57531D952BD6E740D71D /* Pods-Flickr Party.debug.xcconfig */;
+			baseConfigurationReference = 54AB70CB6FD9FC2D76DC799B /* Pods-FlickrParty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -513,7 +519,7 @@
 		};
 		7CF932FA1D1BF02700D4A1A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 415A15B1772EE8B51E24956C /* Pods-Flickr Party.release.xcconfig */;
+			baseConfigurationReference = 9A52DAC9C1D08B71A4EAF9DD /* Pods-FlickrParty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -535,6 +541,7 @@
 				7C9A559B1D3473EB00588CDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7CF932DC1D1BF02700D4A1A5 /* Build configuration list for PBXProject "FlickrParty" */ = {
 			isa = XCConfigurationList;
