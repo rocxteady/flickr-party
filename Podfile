@@ -1,6 +1,6 @@
 platform :ios, '7.0'
 
-target "Flickr Party" do
+target "FlickrParty" do
 
 pod 'AFNetworking'
 pod 'SDWebImage'
