@@ -10,11 +10,9 @@
 #import "PartyThumbCell.h"
 #import "PartyLastCell.h"
 #import "WebServiceClient.h"
-#import "FlickrPhoto.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "PartyDetailViewController.h"
-#import "Constants.h"
-
+#import "UIColor+Utils.h"
 #import "PartyLocationManager.h"
 
 @interface PartiesNearbyViewController () <UICollectionViewDelegateFlowLayout, CLLocationManagerDelegate, UIAlertViewDelegate>
@@ -95,7 +93,7 @@ static NSUInteger columnCount = 4;
     self.collectionView.contentInset = UIEdgeInsetsMake(2.0, 2.0, 2.0, 2.0);
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.alwaysBounceVertical = YES;
-    self.collectionView.backgroundColor = [Constants sharedInstance].secondColor;
+    self.collectionView.backgroundColor = [UIColor secondColor];
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(reset) forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:refreshControl];
