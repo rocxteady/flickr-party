@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
+typedef NS_ENUM(NSInteger, PartyDataStatus) {
     PartyDataStatusLoading,
     PartyDataStatusLoaded,
     PartyDataStatusFinished,
     PartyDataStatusError
-}PartyDataStatus;
+};
 
 @interface PartyLastCell : UICollectionViewCell
 
