@@ -16,6 +16,4 @@ static NSString *const SearchMethod = @"flickr.photos.search";
 
 typedef void(^WebServiceClientCompletionBlock)(NSMutableDictionary *response, NSError *error);
 
-typedef void(^WebServiceClientSingleCompletionBlock)(NSError *error);
-
 #endif /* WebServiceClientHelper_h */
