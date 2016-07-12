@@ -10,8 +10,6 @@
 #import <AFNetworking/AFNetworking.h>
 #import "Constants.h"
 
-static WebServiceClient *client;
-
 @interface WebServiceClient ()
 
 {
@@ -24,9 +22,13 @@ static WebServiceClient *client;
 @implementation WebServiceClient
 
 + (instancetype)client {
-    if (!client) {
-        client = [[WebServiceClient alloc] init];
-    }
+    static id client = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        client = [[self alloc] init];
+    });
+    
     return client;
 }
 
@@ -64,7 +66,10 @@ static WebServiceClient *client;
     parametersDictionary[@"nojsoncallback"] = @1;
     NSError *error = nil;
     NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parametersDictionary error:&error];
-    
+    if (error) {
+        completionBlock(nil, error);
+        return;
+    }
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
