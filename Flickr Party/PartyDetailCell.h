@@ -14,6 +14,9 @@
 @property (strong, nonatomic) UIScrollView            *scrollView;
 @property (strong, nonatomic) FPImageView             *imageView;
 @property (strong, nonatomic) UILabel                 *descriptionLabel;
-@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
+
+- (void)startAnimation;
+
+- (void)stopAnimation;
 
 @end
