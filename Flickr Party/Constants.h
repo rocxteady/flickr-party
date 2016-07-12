@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 extern NSString *const FlickrAppKey;
+static CGFloat defaultViewPadding = 8.0;
 
 @interface Constants : NSObject
 
