@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		5D868B2780D0DE0072E81A5E /* libPods-FlickrParty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7979913837F44D6CE797B4 /* libPods-FlickrParty.a */; };
+		7C20321F1D3CE53100501755 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C2032211D3CE53100501755 /* Localizable.strings */; };
 		7C74884C1D1D0E7800F9B2D2 /* PartiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884B1D1D0E7800F9B2D2 /* PartiesViewController.m */; };
 		7C74884F1D1D0E8D00F9B2D2 /* ViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884E1D1D0E8D00F9B2D2 /* ViewControllerManager.m */; };
 		7C7488521D1D108800F9B2D2 /* PartyThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7488511D1D108800F9B2D2 /* PartyThumbCell.m */; };
@@ -50,6 +51,7 @@
 		4F7979913837F44D6CE797B4 /* libPods-FlickrParty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlickrParty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54AB70CB6FD9FC2D76DC799B /* Pods-FlickrParty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrParty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrParty/Pods-FlickrParty.debug.xcconfig"; sourceTree = "<group>"; };
 		6D2C57531D952BD6E740D71D /* Pods-Flickr Party.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr Party.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flickr Party/Pods-Flickr Party.debug.xcconfig"; sourceTree = "<group>"; };
+		7C2032201D3CE53100501755 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7C6958911D25120700A4D84B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		7C74884A1D1D0E7800F9B2D2 /* PartiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartiesViewController.h; sourceTree = "<group>"; };
 		7C74884B1D1D0E7800F9B2D2 /* PartiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartiesViewController.m; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				7CF932F01D1BF02700D4A1A5 /* Assets.xcassets */,
 				7CF932F51D1BF02700D4A1A5 /* Info.plist */,
 				7C6958911D25120700A4D84B /* README.md */,
+				7C2032211D3CE53100501755 /* Localizable.strings */,
 			);
 			path = "Flickr Party";
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF932F11D1BF02700D4A1A5 /* Assets.xcassets in Resources */,
+				7C20321F1D3CE53100501755 /* Localizable.strings in Resources */,
 				7CF932FE1D1BF0BB00D4A1A5 /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +409,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7C2032211D3CE53100501755 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C2032201D3CE53100501755 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7C9A559A1D3473EB00588CDF /* Debug */ = {
