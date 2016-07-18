@@ -34,7 +34,7 @@ static NSUInteger columnCount = 4;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"Parties", nil);
+    self.title = @"Parties";
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -66,7 +66,7 @@ static NSUInteger columnCount = 4;
     [FlickrPhoto getPartyPhotosWithPageNo:pageNo withCompletionBlock:^(FlickrSearchResponse *response, NSError *error) {
         [refreshControl endRefreshing];
         if (error) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:error.localizedDescription delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles: nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alertView show];
             self.partyDataStatus = PartyDataStatusError;
         }

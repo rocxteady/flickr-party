@@ -38,7 +38,7 @@ static NSUInteger columnCount = 4;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = NSLocalizedString(@"Parties", nil);
+    self.title = @"Parties";
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -47,7 +47,7 @@ static NSUInteger columnCount = 4;
     // Do any additional setup after loading the view.
     [self reset];
 
-    self.title = NSLocalizedString(@"Parties Nearby", nil);
+    self.title = @"Parties Nearby";
     
 }
 
@@ -67,17 +67,17 @@ static NSUInteger columnCount = 4;
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     NSString *errorDescription;
     if (status == kCLAuthorizationStatusDenied) {
-        errorDescription = NSLocalizedString(@"You must give location permission to access this feature.", nil);
+        errorDescription = @"You must give location permission to access this feature.";
 
     }
     else if (status == kCLAuthorizationStatusRestricted) {
-        errorDescription = NSLocalizedString(@"Location access is restricted!", nil);
+        errorDescription = @"Location access is restricted!";
 
     }
     //If the status == kCLAuthorizationStatusDenied or kCLAuthorizationStatusRestricted while browsing, we let user browsing for his/her latest location. Otherwise error occurs.
     if (errorDescription && pageNo == 1) {
         if (!isLocationAuthorizationErrorDisplayed) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:errorDescription delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorDescription delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alertView show];
             isLocationAuthorizationErrorDisplayed = YES;
         }
@@ -118,10 +118,10 @@ static NSUInteger columnCount = 4;
             
             break;
         case kCLAuthorizationStatusDenied:
-            errorDescription = NSLocalizedString(@"You must give location permission to access this feature.", nil);
+            errorDescription = @"You must give location permission to access this feature.";
             break;
         case kCLAuthorizationStatusRestricted:
-            errorDescription = NSLocalizedString(@"Location access is restricted!", nil);
+            errorDescription = @"Location access is restricted!";
             break;
         case kCLAuthorizationStatusAuthorizedAlways:
         case kCLAuthorizationStatusAuthorizedWhenInUse:
@@ -131,7 +131,7 @@ static NSUInteger columnCount = 4;
     }
     if (errorDescription) {
         if (!isLocationAuthorizationErrorDisplayed) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:errorDescription delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorDescription delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alertView show];
             isLocationAuthorizationErrorDisplayed = YES;
         }
@@ -149,7 +149,7 @@ static NSUInteger columnCount = 4;
     [FlickrPhoto getPartyPhotosAroundMeWithPageNo:pageNo withCompletionBlock:^(FlickrSearchResponse *response, NSError *error) {
         [refreshControl endRefreshing];
         if (error) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:error.localizedDescription delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles: nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alertView show];
             self.partyDataStatus = PartyDataStatusError;
         }

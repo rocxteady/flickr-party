@@ -53,7 +53,7 @@
     NSArray *horizontalConstraintsForDescriptionLabel = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[descriptionLabel]-%f-|", defaultViewPadding, defaultViewPadding] options:0 metrics:nil views:@{@"descriptionLabel": descriptionLabel}];
     [self.contentView addConstraints:horizontalConstraintsForDescriptionLabel];
     [self.contentView addConstraint:verticalCenterConstraintForDescriptionLabel];
-    descriptionLabel.text = NSLocalizedString(@"Error. Tap here to retry.", nil);
+    descriptionLabel.text = @"Error. Tap here to retry.";
 
     
     finishedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tick"]];

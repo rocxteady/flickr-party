@@ -27,7 +27,7 @@
     PartiesNearbyViewController *partiesNearbyViewController = [[PartiesNearbyViewController alloc] initWithCollectionViewLayout:layoutForPartiesNearby];
     UINavigationController *partiesNearbyNavigationController = [[UINavigationController alloc] initWithRootViewController:partiesNearbyViewController];
     partiesNearbyNavigationController.tabBarItem.image = [UIImage imageNamed:@"nearby_tab"];
-    partiesNearbyNavigationController.tabBarItem.title = NSLocalizedString(@"Parties Nearby", nil);
+    partiesNearbyNavigationController.tabBarItem.title = @"Parties Nearby";
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[partiesNavigationController, partiesNearbyNavigationController];
