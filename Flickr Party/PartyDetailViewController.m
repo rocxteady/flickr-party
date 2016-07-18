@@ -24,7 +24,7 @@ static NSString * const reuseIdentifier = @"PartyDetailCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Party Details";
+    self.title = NSLocalizedString(@"Party Details", nil);
     
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.showsVerticalScrollIndicator = NO;
