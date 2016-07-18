@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  FlickrParty
+
+  Created by Ulaş Sancak on 18/07/16.
+  Copyright © 2016 Ulaş Sancak. All rights reserved.
+*/
+
+"Parties" = "Parties";
+
+"Parties Nearby" = "Parties Nearby";
+
+"You must give location permission to access this feature." = "You must give location permission to access this feature.";
+
+"Location access is restricted!" = "Location access is restricted!";
+
+"Error" = "Error";
+
+"OK" = "OK";
+
+"Party Details" = "Party Details";
+
+"Error. Tap here to retry." = "Error. Tap here to retry.";
