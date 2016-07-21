@@ -7,14 +7,14 @@
 //
 
 #import "WebServiceClient.h"
-#import <AFNetworking/AFNetworking.h>
 #import "Constants.h"
+#import "NSDictionary+QueryString.h"
 
-@interface WebServiceClient ()
+@interface WebServiceClient () <NSURLSessionDelegate>
 
 {
     NSURLSessionConfiguration *configuration;
-    AFURLSessionManager *manager;
+    NSURLSession *session;
 }
 
 @end
@@ -36,7 +36,7 @@
     self = [super init];
     if (self) {
         configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+        session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
     }
     return self;
 }
@@ -61,23 +61,27 @@
     else {
         parametersDictionary = [NSMutableDictionary dictionary];
     }
+    
     parametersDictionary[@"api_key"] = FlickrAppKey;
     parametersDictionary[@"format"] = @"json";
     parametersDictionary[@"nojsoncallback"] = @1;
-    NSError *error = nil;
-    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parametersDictionary error:&error];
-    if (error) {
-        completionBlock(nil, error);
-        return;
-    }
     
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            completionBlock(nil, error);
-        } else {
-            completionBlock(responseObject, nil);
-        }
+    NSString *queryString = [parametersDictionary queryString];
+    URLString = [URLString stringByAppendingString:queryString];
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:URLString] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                completionBlock(nil, error);
+            }
+            else {
+                NSError *jsonError = nil;
+                NSMutableDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+                completionBlock(responseDictionary, nil);
+            }
+        });
     }];
+    
     [dataTask resume];
 }
 
