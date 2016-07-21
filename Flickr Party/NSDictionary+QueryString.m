@@ -24,7 +24,7 @@
         else {
             queryString = [queryString stringByAppendingString:@"&"];
         }
-        queryString = [NSString stringWithFormat:@"%@%@=%@", queryString, [NSString URLEscapeString:key], [NSString URLEscapeString:value]];
+        queryString = [NSString stringWithFormat:@"%@%@=%@", queryString, [NSString URLEncodedString:key], [NSString URLEncodedString:value]];
     }
     return queryString;
 }
