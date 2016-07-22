@@ -10,7 +10,7 @@
 #import "Constants.h"
 #import "NSDictionary+QueryString.h"
 
-@interface WebServiceClient () <NSURLSessionDelegate>
+@interface WebServiceClient ()
 
 {
     NSURLSessionConfiguration *configuration;
@@ -36,7 +36,7 @@
     self = [super init];
     if (self) {
         configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
+        session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
     }
     return self;
 }
