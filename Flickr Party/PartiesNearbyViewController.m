@@ -10,10 +10,10 @@
 #import "PartyThumbCell.h"
 #import "PartyLastCell.h"
 #import "WebServiceClient.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "PartyDetailViewController.h"
 #import "UIColor+Utils.h"
 #import "PartyLocationManager.h"
+#import "UIImageView+Cache.h"
 
 @interface PartiesNearbyViewController () <UICollectionViewDelegateFlowLayout, CLLocationManagerDelegate, UIAlertViewDelegate>
 {
@@ -61,7 +61,9 @@ static NSUInteger columnCount = 4;
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     NSLog(@"%@", locations);
     [locationManager stopUpdatingLocation];
-    [self getPartyPhotos];
+    if (self.partyDataStatus != PartyDataStatusLoading) {
+        [self getPartyPhotos];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -103,7 +105,6 @@ static NSUInteger columnCount = 4;
 }
 
 - (void)reset {
-    self.partyDataStatus = PartyDataStatusLoading;
     pageNo = 1;
     [self removeData];
     locationManager = [PartyLocationManager sharedManager];
@@ -252,21 +253,35 @@ static NSUInteger columnCount = 4;
     }
     PartyThumbCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:defaultReuseIdentifier forIndexPath:indexPath];
     cell.imageView.alpha = 0;
-    // Configure the cell
     FlickrPhoto *photo = photos[indexPath.item];
-    __block __weak PartyThumbCell *blockCell = cell;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        if (cacheType == SDImageCacheTypeNone) {
-            [UIView animateWithDuration:0.25
-                             animations:^{
-                                 blockCell.imageView.alpha = 1.0;
-                             }];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:photo.thumbnail] withCompletionBlock:^(UIImage *image, BOOL isCached, NSError *error) {
+        if (!error) {
+            PartyThumbCell *cell = (PartyThumbCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+            if (isCached) {
+                cell.imageView.image = image;
+                cell.imageView.alpha = 1.0;
+            }
+            else {
+                PartyThumbCell *cell = (PartyThumbCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+                if (cell && [cell isKindOfClass:[PartyThumbCell class]]) {
+                    cell.imageView.image = image;
+                    [UIView animateWithDuration:0.25
+                                     animations:^{
+                                         cell.imageView.alpha = 1.0;
+                                     }];
+                }
+            }
         }
-        else {
-            blockCell.imageView.alpha = 1.0;
-        }
+        
     }];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.item != photos.count) {
+        PartyThumbCell *partyThumbCell = (PartyThumbCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        [partyThumbCell.imageView cancelDownloadingURL];
+    }
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

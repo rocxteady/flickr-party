@@ -8,8 +8,8 @@
 
 #import "PartyDetailViewController.h"
 #import "PartyDetailCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "FlickrPhoto.h"
+#import "UIImageView+Cache.h"
 
 @interface PartyDetailViewController () <UICollectionViewDelegateFlowLayout>
 {
@@ -68,24 +68,33 @@ static NSString * const reuseIdentifier = @"PartyDetailCell";
     return 1;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _photos.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PartyDetailCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.imageView.image = nil;
     cell.scrollView.contentOffset = CGPointZero;
     
-    // Configure the cell
     FlickrPhoto *photo = _photos[indexPath.item];
     cell.descriptionLabel.text = photo.title;
     [cell startAnimation];
-    __block __weak PartyDetailCell *blockCell = cell;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:photo.full] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [blockCell stopAnimation];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:photo.full] withCompletionBlock:^(UIImage *image, BOOL isCached, NSError *error) {
+        PartyDetailCell *cell = (PartyDetailCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+        if (!error) {
+            if (cell) {
+                cell.imageView.image = image;
+            }
+        }
+        [cell stopAnimation];
     }];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    PartyDetailCell *partyDetailCell = (PartyDetailCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [partyDetailCell.imageView cancelDownloadingURL];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
