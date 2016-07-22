@@ -191,8 +191,8 @@ static NSUInteger columnCount = 4;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.item != photos.count) {
-        PartyThumbCell *partyThumbCell = (PartyThumbCell *)cell;
+    if ([cell isKindOfClass:[PartyThumbCell class]]) {
+        PartyThumbCell *partyThumbCell = (PartyThumbCell *) cell;
         [partyThumbCell.imageView cancelDownloadingURL];
     }
 }
