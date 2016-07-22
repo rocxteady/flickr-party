@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, PartyDataStatus) {
-    PartyDataStatusLoading,
     PartyDataStatusLoaded,
+    PartyDataStatusLoading,
     PartyDataStatusFinished,
     PartyDataStatusError
 };
