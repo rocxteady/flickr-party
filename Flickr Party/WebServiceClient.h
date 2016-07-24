@@ -12,6 +12,9 @@
 
 @interface WebServiceClient : NSObject
 
+@property (strong, nonatomic, readonly) NSURLSessionConfiguration *sessionConfiguration;
+@property (strong, nonatomic, readonly) NSURLSession *session;
+
 + (instancetype)client;
 
 /**

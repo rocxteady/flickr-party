@@ -12,11 +12,6 @@
 
 @interface WebServiceClient ()
 
-{
-    NSURLSessionConfiguration *configuration;
-    NSURLSession *session;
-}
-
 @end
 
 @implementation WebServiceClient
@@ -35,8 +30,10 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
+        _sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLCache *cache = [[NSURLCache alloc] initWithMemoryCapacity:500*1024*1024 diskCapacity:500*1024*1024 diskPath:nil];
+        [_sessionConfiguration setURLCache:cache];
+        _session = [NSURLSession sessionWithConfiguration:_sessionConfiguration delegate:nil delegateQueue:nil];
     }
     return self;
 }
@@ -69,7 +66,7 @@
     NSString *queryString = [parametersDictionary queryString];
     URLString = [URLString stringByAppendingString:queryString];
     
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:URLString] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionDataTask *dataTask = [_session dataTaskWithURL:[NSURL URLWithString:URLString] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 completionBlock(nil, error);
