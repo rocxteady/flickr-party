@@ -7,7 +7,7 @@
 //
 
 #import "UIImageView+Cache.h"
-#import "ImageSessionManager.h"
+#import "WebServiceClient.h"
 #import <objc/runtime.h>
 
 @interface UIImageView () <NSURLSessionDataDelegate>
@@ -27,11 +27,11 @@
 }
 
 - (void)setImageWithURL:(NSURL *)URL withCompletionBlock:(UIImageViewCacheCompletionBlock)completionBlock{
-    NSURLSession *session = [ImageSessionManager sharedInstance].session;
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL];
+    NSURLSession *session = [WebServiceClient client].session;
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:30.0];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSCachedURLResponse *cachedResponse = [[ImageSessionManager sharedInstance].sessionConfiguration.URLCache cachedResponseForRequest:request];
+        NSCachedURLResponse *cachedResponse = [[WebServiceClient client].sessionConfiguration.URLCache cachedResponseForRequest:request];
         if (cachedResponse) {
             UIImage *image = [UIImage imageWithData:cachedResponse.data];
             dispatch_async(dispatch_get_main_queue(), ^{
