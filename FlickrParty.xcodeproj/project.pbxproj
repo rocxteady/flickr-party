@@ -25,7 +25,6 @@
 		7C20321F1D3CE53100501755 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C2032211D3CE53100501755 /* Localizable.strings */; };
 		7C21A8DD1D412E5500D80AE1 /* NSDictionary+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A8DC1D412E5500D80AE1 /* NSDictionary+QueryString.m */; };
 		7C21A8E01D41303A00D80AE1 /* NSString+URLEncodedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A8DF1D41303A00D80AE1 /* NSString+URLEncodedString.m */; };
-		7C23F5A31D425C7C00CBF172 /* ImageSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C23F5A01D425C7C00CBF172 /* ImageSessionManager.m */; };
 		7C23F5A71D425C9B00CBF172 /* UIImageView+Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C23F5A61D425C9B00CBF172 /* UIImageView+Cache.m */; };
 		7C74884C1D1D0E7800F9B2D2 /* PartiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884B1D1D0E7800F9B2D2 /* PartiesViewController.m */; };
 		7C74884F1D1D0E8D00F9B2D2 /* ViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74884E1D1D0E8D00F9B2D2 /* ViewControllerManager.m */; };
@@ -60,8 +59,6 @@
 		7C21A8DC1D412E5500D80AE1 /* NSDictionary+QueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+QueryString.m"; sourceTree = "<group>"; };
 		7C21A8DE1D41303A00D80AE1 /* NSString+URLEncodedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncodedString.h"; sourceTree = "<group>"; };
 		7C21A8DF1D41303A00D80AE1 /* NSString+URLEncodedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncodedString.m"; sourceTree = "<group>"; };
-		7C23F59F1D425C7C00CBF172 /* ImageSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSessionManager.h; sourceTree = "<group>"; };
-		7C23F5A01D425C7C00CBF172 /* ImageSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSessionManager.m; sourceTree = "<group>"; };
 		7C23F5A51D425C9B00CBF172 /* UIImageView+Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Cache.h"; sourceTree = "<group>"; };
 		7C23F5A61D425C9B00CBF172 /* UIImageView+Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Cache.m"; sourceTree = "<group>"; };
 		7C6958911D25120700A4D84B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -184,8 +181,6 @@
 				7CE3AE331D21379A00F3F108 /* FPImageView.m */,
 				7CE3AE3B1D21732B00F3F108 /* PartyLocationManager.h */,
 				7CE3AE3C1D21732B00F3F108 /* PartyLocationManager.m */,
-				7C23F59F1D425C7C00CBF172 /* ImageSessionManager.h */,
-				7C23F5A01D425C7C00CBF172 /* ImageSessionManager.m */,
 				7C23F5A51D425C9B00CBF172 /* UIImageView+Cache.h */,
 				7C23F5A61D425C9B00CBF172 /* UIImageView+Cache.m */,
 			);
@@ -420,7 +415,6 @@
 				7CF933041D1BF20C00D4A1A5 /* FlickrPhoto.m in Sources */,
 				7CF9330D1D1BF99500D4A1A5 /* FlickrResponse.m in Sources */,
 				7C21A8DD1D412E5500D80AE1 /* NSDictionary+QueryString.m in Sources */,
-				7C23F5A31D425C7C00CBF172 /* ImageSessionManager.m in Sources */,
 				7C21A8E01D41303A00D80AE1 /* NSString+URLEncodedString.m in Sources */,
 				7CF932E61D1BF02700D4A1A5 /* main.m in Sources */,
 				7CF933101D1BF9B900D4A1A5 /* FlickrSearchResponse.m in Sources */,
